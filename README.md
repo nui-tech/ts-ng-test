@@ -1,9 +1,13 @@
-
+‼️ Please run git clone with `--recurse-submodules` to pull Truscape-test assets.
 ```bash
 git clone git@github.com:nui-tech/truescape-ngt.git --recurse-submodules
 ```
-‼️ Please run git clone with `--recurse-submodules` to pull Truscape-test assets.
 
+
+Or if you download ZIP, please run below command to pull Truscape-test assets.
+```
+git submodule update --init --recursive
+```
 
 
 # TruescapeNgt
