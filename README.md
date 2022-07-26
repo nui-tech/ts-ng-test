@@ -1,6 +1,17 @@
+
+```bash
+git clone git@github.com:nui-tech/truescape-ngt.git --recurse-submodules
+```
+‼️ Please run git clone with `--recurse-submodules` to pull Truscape-test assets.
+
+
+---
+
 # TruescapeNgt
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.6.
+
+
 
 ## Development server
 
