@@ -1,15 +1,12 @@
-import { AfterContentChecked, AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import * as THREE from 'three';
 import { MapControls, OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTF, GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { SVGLoader } from 'three/examples/jsm/loaders/SVGLoader';
 import { ViewMode } from '../components/controller/controller.component';
 import * as dat from 'dat.gui';
-import { Mesh, MeshBasicMaterial, MeshStandardMaterial } from 'three';
 
 const ASSET_PATH_3D = '../../assets/truescape/3d-assets/';
-const ASSET_PATH_UI = '../../assets/truescape/ui/';
-const PIN = '../../assets/truescape/ui/Pin.svg';
 const MAP_PIN = '../../assets/sample/map_pin/scene.gltf';
 
 @Component({
@@ -20,8 +17,6 @@ const MAP_PIN = '../../assets/sample/map_pin/scene.gltf';
 export class HomeComponent implements OnInit, AfterViewInit {
 
   constructor(private cdtRef: ChangeDetectorRef) { }
-
-
 
   @ViewChild('rendererCanvas', { static: true })
   public rendererCanvasRef!: ElementRef<HTMLCanvasElement>;
@@ -43,8 +38,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   private pin!: GLTF;
   // lights
   private ambientLight!: THREE.AmbientLight;
-  // other scene objects
-  private pinLoader!: SVGLoader;
   // controller
   public controls!: OrbitControls;
   // mouse raycaster for clicking on 3d objects
@@ -71,7 +64,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.cdtRef.detectChanges();
   }
 
-
   private createScene(): void {
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(0xdcf0fa);
@@ -86,13 +78,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     this.scene.fog = new THREE.FogExp2(0xdcf0fa, 0.008);
 
-
     // this.loadDebugGui();
 
     this.loadMapGLTF();
 
     this.loadPinGLTF();
-
 
   }
 
@@ -113,10 +103,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.controls.maxPolarAngle = (Math.PI / 2) - 0.35;
     this.controls.maxDistance = 80;
     this.controls.minDistance = 1.25;
-    // console.log(this.controls.getPolarAngle());
-    
     this.controls.update();
-
 
   }
 
@@ -171,7 +158,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
       (this.pin as any).material.color.set(0xcc0104);
     }
   }
-
 
   private getAspectRatio(): number {
     return window.innerWidth / (window.innerHeight - 64);
