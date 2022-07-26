@@ -1,0 +1,37 @@
+<!-- Main modal -->
+<div id="defaultModal" tabindex="-1" aria-hidden="true"
+  class=" overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full flex justify-center items-center before:bg-black before:fixed before:top-0 before:left-0 before:opacity-80 before:w-full before:h-full" [ngClass]="{hidden: !isShow}">
+  <div class="relative p-4 w-full max-w-2xl h-full md:h-auto opacity-95">
+    <!-- Modal content -->
+    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+      <!-- Modal header -->
+      <div class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+          Bowdens Silver
+        </h3>
+        <button type="button" (click)="close()"
+          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+          data-modal-toggle="defaultModal">
+          <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span class="sr-only">Close modal</span>
+        </button>
+      </div>
+      <!-- Modal body -->
+      <div class="p-6 space-y-6">
+        <video width="100%" controls>
+          <source src="../../../assets/truescape/media/Bowdens Silver Overview.mp4" >
+        </video>
+        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet recusandae voluptatum ipsa facere consectetur, doloremque ratione. Atque neque tempora ullam nam minus voluptate corrupti. Maxime eos quia magni labore magnam.
+        </p>
+        
+      </div>
+
+    </div>
+  </div>
+</div>
