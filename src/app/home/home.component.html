@@ -1,0 +1,19 @@
+<div class="engine-wrapper">
+
+  <canvas #rendererCanvas></canvas>
+  
+  <map-controller 
+    *ngIf="camera != undefined"
+    [controls]="controls"
+    [camera]="camera"
+    (onModeChange)="modeChange($event)"
+    >
+  </map-controller>
+
+  <app-modal 
+    *ngIf="isModalOpen" 
+    [isShow]="isModalOpen" 
+    (onClose)="onModalClose()">
+  </app-modal>
+
+</div>

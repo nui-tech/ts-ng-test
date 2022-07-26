@@ -1,0 +1,3 @@
+[submodule "src/assets/truescape"]
+	path = src/assets/truescape
+	url = https://bitbucket.org/truescape/truescape-test/src/master/
