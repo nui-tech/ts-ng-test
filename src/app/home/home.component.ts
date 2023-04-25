@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import * as THREE from 'three';
 import { MapControls, OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTF, GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
@@ -14,7 +14,7 @@ const MAP_PIN = '../../assets/sample/map_pin/scene.gltf';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(private cdtRef: ChangeDetectorRef) { }
 
@@ -64,6 +64,25 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.cdtRef.detectChanges();
   }
 
+  ngOnDestroy(): void {
+    console.log('destroying');
+
+    // this.mining.scene.clear();
+    // this.mining.scene.remove();
+    // @ts-ignore
+    this.mining = undefined;
+    // @ts-ignore
+    this.miningFacility = undefined;
+    // @ts-ignore
+    this.preMining = undefined;
+
+    this.scene.clear();
+    this.scene.remove();
+    this.renderer.forceContextLoss();
+    this.renderer.dispose();
+    
+  }
+
   private createScene(): void {
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(0xdcf0fa);
@@ -82,7 +101,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     this.loadMapGLTF();
 
-    this.loadPinGLTF();
+    // this.loadPinGLTF();
 
   }
 
@@ -188,6 +207,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   private loadMapGLTF() {
+    console.log('loading map');
+    
     this.gltfLoader = new GLTFLoader();
 
     // Load outer terrain
